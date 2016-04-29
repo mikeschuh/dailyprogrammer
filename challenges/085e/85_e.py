@@ -64,8 +64,6 @@ def run(mat):
     print colmat
     
     
-    
-
 def readfile(fname):
     datamat = []
     with open(fname, 'r') as f:
