@@ -1,10 +1,17 @@
 #
-
 import sys
+import multiprocessing
+import time
+
+def sleep_sort_worker(num):
+	time.sleep(num)
+	print num
 
 
 def sleep_sort(intlist):
-	pass
+	for num in intlist:
+		p = multiprocessing.Process(target=sleep_sort_worker, args=(num,))
+		p.start()
 
 
 def main():
@@ -13,7 +20,7 @@ def main():
 		print 'python 091e.py {list of ints to sort}'
 		exit()
 
-	intlist = sys.argv[1:]
+	intlist = [int(x) for x in sys.argv[1:]]
 	print intlist
 
 	sleep_sort(intlist)
