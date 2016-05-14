@@ -1,19 +1,18 @@
-
+#
 import sys
 
 
 def run(mat):
-    
+
     print mat
-    
     rc = len(mat)
     cc = len(mat[0])
-    
-    #sum each row
-    #sum each col
+
+    # sum each row
+    # sum each col
     rsums = [0] * rc
     csums = [0] * cc
-    
+
     for ri in range(rc):
         for cj in range(cc):
             val = mat[ri][cj]
@@ -22,10 +21,10 @@ def run(mat):
             csums[cj] += val
     
     print 'row sums: ', rsums
-    print 'col sums: ', csums        
+    print 'col sums: ', csums
     
-    #print rows sorted by row sum
-    #print cols sorted by col sum
+    # print rows sorted by row sum
+    # print cols sorted by col sum
     rsums_sorted = sorted(rsums)
     print rsums_sorted
     ro = []
@@ -42,7 +41,6 @@ def run(mat):
 
     print 'row sorted:'
     print rowmat
-
 
     co = []
     colmat = []
@@ -68,19 +66,21 @@ def readfile(fname):
     datamat = []
     with open(fname, 'r') as f:
         for line in f:
-            tokens = [int(x) for x in line.split(' ')] #split on whitespace and cast as ints
+            # split on whitespace and cast as ints
+            tokens = [int(x) for x in line.split(' ')]
             datamat.append(tokens)
     
     return datamat
+
 
 def main():
     
     dfile = sys.argv[1]
     
-    #read file
+    # read file
     data = readfile(dfile)
 
-    #run matrix stuff
+    # run matrix stuff
     run(data)
 
 
