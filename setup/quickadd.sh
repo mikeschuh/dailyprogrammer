@@ -1,7 +1,8 @@
 #!/bin/bash
 
 if [ $# -ne 1 ]; then
-    echo $0: usage: quickadd [CNC]
+    echo $0: usage: sh setup/quickadd.sh [CNC]
+    # ex: sh setup/quickadd.sh 094e
     exit 1
 fi
 
