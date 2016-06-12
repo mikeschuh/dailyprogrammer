@@ -1,7 +1,5 @@
 #
-
 import sys
-import pdb
 
 def main():
     
@@ -13,10 +11,17 @@ def main():
     lines = fin.readlines()
     m = int(lines[0])
     n = int(lines[1])
-    pdb.set_trace()
     piles = []
     for line in lines[2:]:
-        piles.append([int(x) for x in line.split(' ')])
+        tmp = []
+        tokens = line.strip().split(' ')
+        for token in tokens:
+            if len(token) > 0:
+                tmp.append(int(token))
+        piles.append(tmp)
+        
+        #piles.append([int(x) for x in line.split(' ')])
+        # brute forced above to account for multiple spaces between tokens 
     
     for row in piles:
         print(row)
